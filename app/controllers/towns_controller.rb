@@ -1,14 +1,14 @@
-class PickupDatesController < ApplicationController
+class TownsController < ApplicationController
   def new
     charity = find_charity_from_url
-    @pickup_date = charity.pickup_dates.new
+    @town = charity.towns.new
   end
 
   def create
     charity = find_charity_from_url
-    @pickup_date = charity.pickup_dates.new(pickup_date_params)
+    @town = charity.towns.new(town_params)
 
-    if @pickup_date.save
+    if @town.save
       redirect_to charity
     else
       render :new
@@ -21,7 +21,7 @@ class PickupDatesController < ApplicationController
     Charity.find(params[:charity_id])
   end
 
-  def pickup_date_params
-    params.require(:pickup_date).permit(:date)
+  def town_params
+    params.require(:town).permit(:name, :zipcode)
   end
 end

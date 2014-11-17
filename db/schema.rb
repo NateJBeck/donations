@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117191621) do
+ActiveRecord::Schema.define(version: 20141118145559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "availabilities", force: true do |t|
+    t.integer  "charity_id", null: false
+    t.integer  "town_id",    null: false
+    t.date     "date",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "availabilities", ["charity_id", "town_id", "date"], name: "index_availabilities_on_charity_id_and_town_id_and_date", unique: true, using: :btree
+  add_index "availabilities", ["charity_id", "town_id"], name: "index_availabilities_on_charity_id_and_town_id", using: :btree
 
   create_table "charities", force: true do |t|
     t.string "name",     null: false
@@ -24,6 +35,14 @@ ActiveRecord::Schema.define(version: 20141117191621) do
 
   create_table "pickup_dates", force: true do |t|
     t.date     "date",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "charity_id"
+  end
+
+  create_table "towns", force: true do |t|
+    t.string   "name",       null: false
+    t.string   "zipcode",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "charity_id"

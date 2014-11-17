@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
 
   resources :charities, only: [:show] do
-    resources :pickup_dates, only: [:new, :create]
+    resources :towns, only: [:new, :create]
+    resources :availabilities, only: [:create]
   end
 
   root "users#show"

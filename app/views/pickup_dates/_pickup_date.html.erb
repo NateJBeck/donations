@@ -1,3 +1,4 @@
 <li>
-  <%= link_to pickup_date.date %>
+<%= link_to pickup_date.date.strftime("%B %d, %Y"), 
+  charity_pickup_date_path(pickup_date.charity, pickup_date) %>
 </li>

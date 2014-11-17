@@ -1,0 +1,15 @@
+<%= form_for [town.charity, town] do |form| %>
+  <%= render "error_messages", target: town %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
