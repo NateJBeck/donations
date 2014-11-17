@@ -1,3 +1,5 @@
 <% if signed_in? && current_user.admin? %>
-  <h3>You are an administrator for: <%= @charity.name %></h3>
+  <h3>You are an administrator for: 
+    <%= link_to @charity.name, @charity %>
+  </h3>
 <% end %>

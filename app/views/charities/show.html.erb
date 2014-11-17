@@ -1,0 +1,10 @@
+<h3>
+Your organization is scheduled for the following dates:
+</h3>
+<ul>
+  <%= render @pickup_dates %>
+</ul>
+<h3>
+  <%= link_to "Add a date to Charity Routes", 
+    new_charity_pickup_date_path(@charity) %>
+</h3>
