@@ -8,7 +8,7 @@ class PickupDatesController < ApplicationController
     charity = find_charity_from_url
     @pickup_date = charity.pickup_dates.new(pickup_date_params)
 
-    if pickup_date.save
+    if @pickup_date.save
       redirect_to charity
     else
       render :new
