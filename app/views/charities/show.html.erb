@@ -1,15 +1,11 @@
 <h3>
   <%= link_to "Add a town to pick-up in",
-    new_charity_town_path(@charity) %>
+    new_charity_presence_path(@charity) %>
 </h3>
-<ul>
-  <%= render @towns %>
-</ul>
 
-<ul>
-  <h3>Availabilities</h3>
-  <%= render @availabilities %>
-</ul>
+<%= render @availabilities %>
+
+<%= render @towns %>
 
 <h3>-----AVAILABILITY FORM-----</h3>
 <%= render "availabilities/form", charity: @charity, availability: @availability %>

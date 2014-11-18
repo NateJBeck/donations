@@ -8,8 +8,10 @@ class UsersController < ApplicationController
   def show
     if signed_in?
       if current_user.admin?
-        @charity = find_users_charity
+        @charity = find_admins_charity
       end
+    else
+      redirect_to availabilities_path
     end
   end
 
@@ -30,7 +32,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :password)
   end
 
-  def find_users_charity
+  def find_admins_charity
     Charity.find(current_user.charity_id)
   end
 end

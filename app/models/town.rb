@@ -1,6 +1,6 @@
 class Town < ActiveRecord::Base
-  validates :name, presence: true
-  validates :zipcode, presence: true
+  validates :name, presence: true, uniqueness: true
 
-  belongs_to :charity
+  has_many :presences
+  has_many :charities, through: :presences
 end

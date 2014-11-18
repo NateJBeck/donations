@@ -4,7 +4,7 @@
   <%= form.hidden_field :charity_id, :value => charity.id %>
 
   <%= form.collection_select :town_id, 
-    charity.towns.all, :id, :name, {:prompt => "Select Town"} %>
+    charity.towns, :id, :name, { :prompt => "Select Town" } %>
 
   <div>
     <%= form.label :date %>

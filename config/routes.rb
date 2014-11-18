@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
 
   resources :charities, only: [:show] do
-    resources :towns, only: [:new, :create]
     resources :availabilities, only: [:create]
+    resources :presences, only: [:new, :create]
   end
+
+  resources :availabilities, only: [:index]
 
   root "users#show"
 end

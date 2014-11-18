@@ -1,4 +1,8 @@
 class AvailabilitiesController < ApplicationController
+  def index
+    @availabilities = Availability.all
+  end
+
   def new
     charity = find_charity_from_url
     @availability = charity.availabilities.new
