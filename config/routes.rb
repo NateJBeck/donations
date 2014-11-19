@@ -11,5 +11,9 @@ Rails.application.routes.draw do
     resources :pickups, only: [:create, :new, :show]
   end
 
+  resources :pickups, only: [] do
+    resources :pickup_confirmations, only: [:create]
+  end
+
   root "users#show"
 end

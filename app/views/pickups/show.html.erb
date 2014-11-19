@@ -1,3 +1,8 @@
-<h3>Thanks! Please confirm by email</h3>
 <%= render @availability %>
+<%= @pickup.address %><br />
 <%= @pickup.donor.email %>
+
+<h4>
+  <%= button_to "Confirm Donation", 
+    pickup_pickup_confirmations_path(@pickup) %>
+</h4>
