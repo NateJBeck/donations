@@ -1,0 +1,5 @@
+<h3>Schedule Your Donation to
+<%= Charity.find(@availability.charity_id).name %> on 
+<%= @availability.date.strftime("%B %d, %Y") %></h3>
+
+<%= render "form", pickup: @pickup, availability: @availability %>

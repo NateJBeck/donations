@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :presences, only: [:new, :create]
   end
 
-  resources :availabilities, only: [:index]
+  resources :availabilities, only: [:index, :show] do
+    resources :pickups, only: [:create, :new, :show]
+  end
 
   root "users#show"
 end

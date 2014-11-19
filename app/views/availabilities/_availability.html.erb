@@ -1,5 +1,8 @@
 <li>
-  <%= availability.find_town_from(availability.town_id) %>
-  - <%= availability.find_charity_from(availability.charity_id) %>
-  - <%= availability.date.strftime("%B %d, %Y") %>
+<%= availability.find_town_from(availability.town_id) %>
+- <%= availability.find_charity_from(availability.charity_id) %>
+- <%= availability.date.strftime("%B %d, %Y") %>
+<% if ! params[:availability_id] %>
+  <%= button_to "Schedule a Donation", new_availability_pickup_path(availability), method: :get %>
+<% end %>
 </li>

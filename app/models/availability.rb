@@ -4,6 +4,7 @@ class Availability < ActiveRecord::Base
   validates :date, presence: true
 
   belongs_to :charity
+  has_many :pickups
 
   def find_town_from(town_id)
     town = Town.find(town_id)

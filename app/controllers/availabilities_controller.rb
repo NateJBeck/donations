@@ -14,7 +14,16 @@ class AvailabilitiesController < ApplicationController
     try_to_save_the_availability(@availability, charity)
   end
 
+  def show
+    @availability = find_availability_from_url
+    @pickup = Pickup.new
+  end
+
   private
+
+  def find_availability_from_url
+    Availability.find(params[:id])
+  end
 
   def filter_params
     if params[:filter]

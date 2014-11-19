@@ -1,0 +1,28 @@
+<h2>To schedule your pickup, please enter the following info</h2>
+
+<%= form_for [availability, pickup] do |form| %>
+  <%= render "error_messages", target: pickup %>
+
+  <div>
+    <%= label_tag(:email, "Email") %>
+    <%= text_field_tag(:email) %>
+  </div>
+
+  <div>
+    <%= form.label "Address" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <% town_name = Town.find(availability.town_id).name %>
+    <%= form.label "Town: #{ town_name }" %>
+    <%= form.hidden_field :town_id, value: availability.town_id %>
+  </div>
+
+  <div>
+    <%= form.label :telephone %>
+    <%= form.phone_field :telephone %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
