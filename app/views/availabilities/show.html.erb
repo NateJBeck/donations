@@ -1,1 +1,13 @@
+<h1><%= @town_name %></h1><br />
 
+<div id="map_wrapper">
+  <div id="map_canvas"></div>
+</div>
+
+<p>Confirmed: <%= @confirmed_pickups.count %></p>
+<ul>
+  <div class="pickups">
+    <%= render @confirmed_pickups, town_name: @town_name %>
+  </div>
+</ul>
+<p>Unconfirmed: <%= @unconfirmed_pickups.count %></p>

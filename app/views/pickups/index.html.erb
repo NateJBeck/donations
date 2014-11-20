@@ -1,0 +1,11 @@
+<div id="map_wrapper">
+  <div id="map_canvas"></div>
+</div>
+
+<h2>All pickups for <%= @date %></h2>
+<% @availabilities.each do |availability| %>
+  <div class="pickups" %>
+  <%= render availability.confirmed_pickups, town_name:
+    availability.town.name %>
+  </div>
+<% end %>

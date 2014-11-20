@@ -1,6 +1,11 @@
 class AvailabilitiesController < ApplicationController
   def index
-    @availabilities = Availability.where(filter_params)
+    if params[:charity_id]
+      @charity = Charity.find(params[:charity_id])
+      @calendar = @charity.availabilities.group_by &:date
+    else
+      @availabilities = Availability.where(filter_params)
+    end
   end
 
   def new
@@ -16,7 +21,13 @@ class AvailabilitiesController < ApplicationController
 
   def show
     @availability = find_availability_from_url
-    @pickup = Pickup.new
+    if params[:charity_id]
+      @confirmed_pickups = @availability.confirmed_pickups
+      @unconfirmed_pickups = @availability.unconfirmed_pickups
+      @town_name = @availability.town.name
+    else
+      @pickup = Pickup.new
+    end
   end
 
   private

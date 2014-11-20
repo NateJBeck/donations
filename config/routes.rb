@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
 
   resources :charities, only: [:show] do
-    resources :availabilities, only: [:create]
+    resources :availabilities, only: [:create, :index, :show]
+    resources :pickups, only: [:index]
     resources :presences, only: [:new, :create]
   end
 

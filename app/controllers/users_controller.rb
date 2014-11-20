@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     if signed_in?
       if current_user.admin?
         @charity = find_admins_charity
+      else
+        redirect_to availabilities_path
       end
     else
       redirect_to availabilities_path

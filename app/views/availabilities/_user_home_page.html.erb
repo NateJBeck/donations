@@ -1,0 +1,12 @@
+<h3>Find a charity coming to your town (use SELECT2)</h3>
+
+<%= form_for :filter, url: availabilities_path, 
+  :method => 'get' do |form| %>
+  <%= form.collection_select :town_id, 
+    Town.all, :id, :name, { prompt: "Find By Town" } %>
+  <%= form.collection_select :charity_id, 
+    Charity.all, :id, :name, { prompt: "Find By Charity" } %>
+  <%= form.submit "Enter Town to find a charity" %>
+<% end %>
+
+<%= render availabilities %>
