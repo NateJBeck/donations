@@ -8,7 +8,8 @@ class PickupsController < ApplicationController
     availability = find_availability_from_url
     pickup = availability.pickups.new(pickup_params)
     if pickup.save
-      associate_donor_for(params[:email], pickup)
+      donor = associate_donor_for(params[:email], pickup)
+      send_confirmation_email_to(donor)
       redirect_to availability_pickup_path(availability, pickup)
     else
       render :new
@@ -33,7 +34,11 @@ class PickupsController < ApplicationController
 
   def associate_donor_for(email, pickup)
     donor = Donor.find_or_initialize_by(email: email)
-    donor.pickup_id = pickup.id
-    donor.save
+    donor.update(pickup_id: pickup.id)
+    donor
+  end
+
+  def send_confirmation_email_to(donor)
+    DonorMailer.test_email(donor).deliver
   end
 end

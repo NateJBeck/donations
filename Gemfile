@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'bitters'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'flutie'
