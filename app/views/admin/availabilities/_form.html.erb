@@ -1,0 +1,15 @@
+<%= form_for [charity, availability],
+  url: admin_charity_availabilities_path(charity) do |form| %>
+
+  <%= form.hidden_field :charity_id, :value => charity.id %>
+
+  <%= form.collection_select :town_id,
+    charity.towns, :id, :name, { :prompt => "Select Town" } %>
+
+  <div>
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,8 @@
+<%= form_for [@charity, @presence],
+  url: admin_charity_presences_path(@charity) do |form| %>
+
+  <%= form.collection_select :town_id,
+    Town.all, :id, :name, {:prompt => "Select Town"} %>
+
+  <%= form.submit "Add this town" %>
+<% end %>

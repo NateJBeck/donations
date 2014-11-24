@@ -1,14 +1,14 @@
 <h2>Calendar</h2>
-<% calendar.each do |date, availabilities| %>
+<% @calendar.each do |date, availabilities| %>
   <h3>
     <%= link_to date.strftime("%A, %B %d, %Y"), 
-      charity_pickups_path(@charity, date: date) %>
+      admin_charity_pickups_path(@charity, date: date) %>
   </h3>
 
   <% availabilities.each do |availability| %>
-    <%= render "admin_availability_index",
+    <%= render "availabilities",
       availability: availability,
       town: availability.town,
-      charity: charity %>
+      charity: @charity %>
   <% end %>
 <% end %>

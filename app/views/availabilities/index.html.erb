@@ -1,5 +1,1 @@
-<% if params[:charity_id] %>
-  <%= render "admin_panel", charity: @charity, calendar: @calendar %>
-<% else %>
-  <%= render "user_home_page", availabilities: @availabilities %>
-<% end %>
+<%= render "user_home_page", availabilities: @availabilities %>

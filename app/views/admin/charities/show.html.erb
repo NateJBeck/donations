@@ -1,0 +1,15 @@
+<h3>CHARITY ADMIN SHOW <p><%= @charity.name %></h3></p>
+
+<%= link_to "See Availabilities / Calendar", admin_charity_availabilities_path(@charity) %>
+
+<h1><%= link_to "Create a New Availability", new_admin_charity_availability_path(@charity) %></h1>
+
+<h3>
+  <%= link_to "Add a town to pick-up in",
+    new_admin_charity_presence_path(@charity) %>
+</h3>
+
+<%= render @availabilities %>
+
+<%= render @towns %>
+

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       if current_user.admin?
         @charity = find_admins_charity
       else
-        redirect_to availabilities_path
+        redirect_to admin_charity_path(@charity)
       end
     else
       redirect_to availabilities_path
