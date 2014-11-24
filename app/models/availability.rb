@@ -5,7 +5,7 @@ class Availability < ActiveRecord::Base
 
   belongs_to :charity
   belongs_to :town
-  has_many :pickups
+  has_many :pickups, dependent: :destroy
 
   def find_town_from(town_id)
     town = Town.find(town_id)

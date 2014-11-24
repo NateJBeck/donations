@@ -2,4 +2,7 @@
   <%= availability.find_town_from(availability.town_id) %>
   - <%= availability.find_charity_from(availability.charity_id) %>
   - <%= availability.date.strftime("%a, %B %d, %Y") %>
+  <%= link_to "Delete Availability",
+    admin_charity_availability_path(availability.charity, availability),
+    method: :delete %>
 </li>

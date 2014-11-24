@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :charities, only: [:show] do
-      resources :availabilities, only: [:new, :create, :index, :show]
+      resources :availabilities, only: [:new, :create, :index, :show, :destroy]
       resources :pickups, only: [:index]
       resources :presences, only: [:new, :create]
     end

@@ -22,6 +22,12 @@ class Admin::AvailabilitiesController < AdminController
     @town_name = @availability.town.name
   end
 
+  def destroy
+    charity = find_charity_from_url
+    charity.availabilities.find(params[:id]).destroy
+    redirect_to admin_charity_path(charity)
+  end
+
   private
 
   def find_availability_from_url
@@ -33,6 +39,7 @@ class Admin::AvailabilitiesController < AdminController
   end
 
   def availability_params
-    params.require(:availability).permit(:charity_id, :town_id, :date)
+    params.require(:availability).
+      permit(:charity_id, :town_id, :date)
   end
 end
