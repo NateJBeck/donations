@@ -1,15 +1,57 @@
-<h3>CHARITY ADMIN SHOW <p><%= @charity.name %></h3></p>
+<div id="choice-container">
+<div class="cards">
 
-<%= link_to "See Availabilities / Calendar", admin_charity_availabilities_path(@charity) %>
+  <div class="card">
+    <div class="card-header">
+      <%= link_to "Review Your Calendar", admin_charity_availabilities_path(@charity) %>
+    </div>
+    <div class="card-copy">
+      <%= image_tag src="http://vector-magz.com/wp-content/uploads/2013/09/calendar-icon-vector.png" %>
+      <div class="card-stats">
+        <ul>
+          <li>98<span>Items</span></li>
+          <li>298<span>Things</span></li>
+          <li>923<span>Objects</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<h1><%= link_to "Create a New Availability", new_admin_charity_availability_path(@charity) %></h1>
+  <div class="card">
+    <div class="card-header">
+      <%= link_to "Create New Availability", 
+        new_admin_charity_availability_path(@charity) %>
+    </div>
 
-<h3>
-  <%= link_to "Add a town to pick-up in",
-    new_admin_charity_presence_path(@charity) %>
-</h3>
+    <div class="card-copy">
+      <%= image_tag src="http://vector-magz.com/wp-content/uploads/2013/09/calendar-icon-vector.png" %>
+      <div class="card-stats">
+        <ul>
+          <li>98<span>Items</span></li>
+          <li>298<span>Things</span></li>
+          <li>923<span>Objects</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<%= render @availabilities %>
+  <div class="card">
+    <div class="card-header">
+      <%= link_to "Add new town", new_admin_charity_presence_path(@charity) %>
+    </div>
+    <div class="card-copy">
+      <%= image_tag src="http://vector-magz.com/wp-content/uploads/2013/09/calendar-icon-vector.png" %>
+      <div class="card-stats">
+        <ul>
+          <li>98<span>Items</span></li>
+          <li>298<span>Things</span></li>
+          <li>923<span>Objects</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render @towns %>
+<%# <%= render @availabilities %>
+<%# <%= render @towns %>
 

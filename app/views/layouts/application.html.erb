@@ -8,21 +8,62 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgQjzrivNHEstyX2i6iCMAiIrazQJZ1I4"></script>
   <%= javascript_include_tag 'application' %>
 </head>
-<body>
-  <% if ! signed_in? %>
-    <%= link_to "USER HOME", root_path %>
-  <% end %>
 
-  <% if signed_in? %>
-  <%= link_to "ADMIN HOME", admin_root_path %>
-      <%= link_to "Sign out", session_path, method: :delete %>
+<body>
+  <div id="container">
+    <header class="navigation">
+      <div class="navigation-wrapper">
+        <a href="javascript:void(0)" class="logo">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+        </a>
+        <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+        <div class="nav">
+          <ul id="navigation-menu">
+            <% if signed_in? && current_user.admin? %>
+              <li class="nav-link"><%= link_to "Dashboard", admin_root_path %></li>
+
+              <li class="nav-link">
+                <%= link_to "Review Calendar",
+                  admin_charity_availabilities_path(current_user.charity_id) %>
+              </li>
+
+              <li class="nav-link"><%= link_to "Pickups" %></li>
+              <li class="nav-link more"><a href="javascript:void(0)">More</a>
+                <ul class="submenu">
+                  <li><%= link_to "Towns / Routes"%></li>
+                  <li><%= link_to "Inventory"%></li>
+                </ul>
+              </li>
+              <%= link_to Charity.find(current_user.charity_id).name %>
+            <% else %>
+              <li class="nav-link"><%= link_to "Donate Today", 
+                availabilities_path %></li>
+              <li class="nav-link"><%= link_to "About Our Organization", 
+                availabilities_path %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% if ! signed_in? %>
+          <div class="navigation-tools">
+            <%= link_to "Sign In", new_session_path, class: "sign-in" %>
+            <%= link_to "Sign Up", new_user_path, class: "sign-up" %>
+          </div>
+        <% else %>
+          <%= link_to "Sign out", session_path, 
+            method: :delete, class: "sign-out" %>
+        <% end %>
+      </div>
+    </header>
+    <% if signed_in? && current_user.admin? %>
+      <div id="dash-container">
+        <div id="dash-side-bar"></div>
+        <div id="main-container">
+          <%= yield %>
+        </div>
+      </div>
     <% else %>
-      <%= link_to "Sign in", new_session_path %>
-      <%= link_to "Sign up", new_user_path %>
+      <%= yield %>
     <% end %>
-  </div>
-  <div>
-    <%= yield %>
   </div>
 </body>
 </html>

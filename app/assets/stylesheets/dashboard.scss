@@ -1,0 +1,29 @@
+#dash-container {
+  background: $dark-gray;
+  height: 40em;
+
+  #dash-side-bar {
+    @include span-columns(2.5, "block-collapse");
+
+    background: white;
+    height: 100%;
+  }
+
+  //PLACE ALL DYNAMIC ADMIN CONTENT HERE
+
+  #main-container {
+    @include span-columns(9.5);
+
+    background: gray;
+    height: 100%;
+    margin-right: 0;
+
+    #choice-container {
+      @include span-columns(10);
+      @include shift(1);
+
+      margin-top: 2em;
+      margin-right: 0;
+    }
+  }
+}

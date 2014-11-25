@@ -1,0 +1,23 @@
+@import "bourbon";
+
+@import "base/grid-settings";
+@import "neat";
+@import "base/base";
+
+@import "select2";
+@import "pickup";
+@import "header";
+@import "footer";
+@import "dashboard";
+@import "accordion";
+@import "choices";
+
+body {
+  background-color: #E8E8E8;
+  $base-background-color: #E8E8E8;
+  font-family: 'PT Sans', sans-serif;
+}
+
+#container {
+  @include outer-container;
+}
