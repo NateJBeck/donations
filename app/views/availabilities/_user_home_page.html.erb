@@ -1,11 +1,11 @@
-<h3>Find a charity coming to your town (use SELECT2)</h3>
+<h3>Schedule your free donation pickup</h3>
 
 <%= form_for :filter, url: availabilities_path, 
   :method => 'get' do |form| %>
   <%= form.collection_select :town_id, 
-    Town.all, :id, :name, { prompt: "Find By Town" } %>
+    Town.order(:name), :id, :name, { prompt: "Enter Your Town" } %>
   <%= form.collection_select :charity_id, 
-    Charity.all, :id, :name, { prompt: "Find By Charity" } %>
+    Charity.all, :id, :name, { prompt: "or Enter Your Favorite Charity" } %>
   <%= form.submit "Enter Town to find a charity" %>
 <% end %>
 

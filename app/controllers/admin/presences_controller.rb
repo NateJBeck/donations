@@ -2,6 +2,7 @@ class Admin::PresencesController < AdminController
   def new
     @charity = find_charity_from_url
     @presence = @charity.presences.new
+    @towns = Town.order(:name)
   end
 
   def create

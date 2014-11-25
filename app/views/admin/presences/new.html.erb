@@ -2,7 +2,7 @@
   url: admin_charity_presences_path(@charity) do |form| %>
 
   <%= form.collection_select :town_id,
-    Town.all, :id, :name, {:prompt => "Select Town"} %>
+    Town.order(:name), :id, :name, { prompt: "Select a Town" } %>
 
   <%= form.submit "Add this town" %>
 <% end %>
