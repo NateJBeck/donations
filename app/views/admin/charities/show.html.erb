@@ -1,4 +1,8 @@
 <div id="choice-container">
+
+<%= link_to "Tomorrow", admin_charity_availabilities_path(@charity, tomorrow: Date.tomorrow) %>
+<%= link_to "Upcoming", admin_charity_availabilities_path(@charity, week: "randomstringimnoteverusingthisbutitsimportantfortheview") %>
+
 <div class="cards">
 
   <div class="card">
@@ -11,7 +15,6 @@
         <ul>
           <li>98<span>Items</span></li>
           <li>298<span>Things</span></li>
-          <li>923<span>Objects</span></li>
         </ul>
       </div>
     </div>
@@ -19,7 +22,7 @@
 
   <div class="card">
     <div class="card-header">
-      <%= link_to "Create New Availability", 
+      <%= link_to "Create New Availability",
         new_admin_charity_availability_path(@charity) %>
     </div>
 
