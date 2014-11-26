@@ -26,8 +26,6 @@
                 <%= link_to "Organization Profile",
                   admin_charity_availabilities_path(current_user.charity_id) %>
               </li>
-
-              <li class="nav-link"><%= link_to "Reports" %></li>
               <li class="nav-link"><%= link_to "Contact Support" %></li>
               <li class="nav-link">Administrator: 
                 <%= Charity.find(current_user.charity_id).name %></li>
@@ -54,7 +52,24 @@
     </header>
     <% if signed_in? && current_user.admin? %>
       <div id="dash-container">
-        <div id="dash-side-navigation-container">NAVNAVNAV</div>
+        <div id="dash-side-navigation-container">
+          <div class="side-bar-nav" role="banner">
+            <h1 class="logo">
+              <a href="#">donation<span>station</span></a>
+            </h1>
+            <div class="nav-wrap">
+              <div class="side-nav" role="navigation">
+                <ul class="unstyled list-hover-slide">
+                  <li><%= link_to "View Schedules", admin_charity_path(current_user.charity_id) %></li>
+
+                  <li><%= link_to "Current Towns", admin_charity_path(current_user.charity_id) %></li>
+                  <li><%= link_to "Reports & Stats", admin_charity_path(current_user.charity_id) %></li>
+                  <li><%= link_to "Full Calendar", admin_charity_path(current_user.charity_id) %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
         <div id="main-container">
           <%= yield %>
         </div>
