@@ -23,22 +23,20 @@
               <li class="nav-link"><%= link_to "Dashboard", admin_root_path %></li>
 
               <li class="nav-link">
-                <%= link_to "Review Calendar",
+                <%= link_to "Organization Profile",
                   admin_charity_availabilities_path(current_user.charity_id) %>
               </li>
 
-              <li class="nav-link"><%= link_to "Pickups" %></li>
-              <li class="nav-link more"><a href="javascript:void(0)">More</a>
-                <ul class="submenu">
-                  <li><%= link_to "Towns / Routes"%></li>
-                  <li><%= link_to "Inventory"%></li>
-                </ul>
-              </li>
-              <%= link_to Charity.find(current_user.charity_id).name %>
+              <li class="nav-link"><%= link_to "Reports" %></li>
+              <li class="nav-link"><%= link_to "Contact Support" %></li>
+              <li class="nav-link">Administrator: 
+                <%= Charity.find(current_user.charity_id).name %></li>
             <% else %>
               <li class="nav-link"><%= link_to "Donate Today", 
                 availabilities_path %></li>
               <li class="nav-link"><%= link_to "About Our Organization", 
+                availabilities_path %></li>
+              <li class="nav-link"><%= link_to "Donate Today", 
                 availabilities_path %></li>
             <% end %>
           </ul>
@@ -56,7 +54,6 @@
     </header>
     <% if signed_in? && current_user.admin? %>
       <div id="dash-container">
-        <div id="dash-side-bar"></div>
         <div id="main-container">
           <%= yield %>
         </div>
