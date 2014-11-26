@@ -4,18 +4,28 @@
 
   //PLACE ALL DYNAMIC ADMIN CONTENT HERE
 
+  #dash-side-navigation-container {
+    @include span-columns(3);
+    background-color: gray;
+    height: 100%;
+  }
+
   #main-container {
-    background: #EDF3F5;
+    @include span-columns(9);
+    background: white;
     box-shadow: 2px 2px 10px #888888;
     height: 100%;
     margin-right: 0;
 
-    #choice-container {
-      @include span-columns(10);
-      @include shift(1);
+    .choice-container {
+      border: 1px solid red;
+    }
 
-      margin-top: 2em;
-      margin-right: 0;
+    ul li.choice-button {
+      @include span-columns(2);
+      height: 10%;
+      border: 1px solid black;
+      float: left;
     }
   }
 }

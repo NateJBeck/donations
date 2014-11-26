@@ -28,6 +28,9 @@ header.navigation {
   }
 
   .logo {
+    @include span-columns(2);
+    height: 10%;
+    border: 1px solid black;
     float: left;
     max-height: $navigation-height;
     padding-left: $navigation-padding;

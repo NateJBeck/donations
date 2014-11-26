@@ -54,6 +54,7 @@
     </header>
     <% if signed_in? && current_user.admin? %>
       <div id="dash-container">
+        <div id="dash-side-navigation-container">NAVNAVNAV</div>
         <div id="main-container">
           <%= yield %>
         </div>
