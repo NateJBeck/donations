@@ -21,7 +21,6 @@
           <ul id="navigation-menu">
             <% if signed_in? && current_user.admin? %>
               <li class="nav-link"><%= link_to "Dashboard", admin_charity_path(current_user.charity_id, schedule: true) %></li>
-
               <li class="nav-link">
                 <%= link_to "Organization Profile",
                   admin_charity_availabilities_path(current_user.charity_id) %>
