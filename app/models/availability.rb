@@ -7,16 +7,6 @@ class Availability < ActiveRecord::Base
   belongs_to :town
   has_many :pickups, dependent: :destroy
 
-  def find_town_from(town_id)
-    town = Town.find(town_id)
-    town.name
-  end
-
-  def find_charity_from(charity_id)
-    charity = Charity.find(charity_id)
-    charity.name
-  end
-
   def confirmed_pickups
     pickups.where(confirmed: true)
   end

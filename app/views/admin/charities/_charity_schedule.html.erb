@@ -1,0 +1,16 @@
+<div class="schedules-options-container">
+<ul>
+  <li class="choice-button">
+    <%= link_to "Tomorrow",
+      admin_charity_availabilities_path(@charity, tomorrow: Date.tomorrow) %>
+</li>
+<li class="choice-button">
+  <%= link_to "Upcoming Week", 
+    admin_charity_availabilities_path(@charity, week: true) %>
+   </li>
+   <li class="choice-button">
+     <%= link_to "Next Month",
+       admin_charity_availabilities_path(@charity) %>
+ </li>
+</ul>
+</div>

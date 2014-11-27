@@ -1,0 +1,12 @@
+<h2>TOMORROW!!!</h2>
+<% if @tomorrows_availabilities.empty? %>
+  <h1>nothin</h1>
+<% else %>
+  <div id="map_wrapper">
+    <div id="map_canvas"></div>
+  </div>
+  <% @tomorrows_availabilities.each do |availability| %>
+    <h1><%= availability.town.name %></h1>
+    <%= availability.pickups.count %>
+  <% end %>
+<% end %>

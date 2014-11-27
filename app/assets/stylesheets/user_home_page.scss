@@ -15,6 +15,11 @@
   }
 }
 
+.availability {
+  @include span-columns(3);
+  border: 2px solid red;
+}
+
 .selection_form {
   height: 5em;
   background-color: black;

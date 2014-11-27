@@ -1,8 +1,5 @@
 <div id="main-container">
-<div class="left-container"></div>
-<div class="right-container"></div>
-</div>
-<div class="selection_form">
+<div class="left-container">
   <h3>Schedule your free donation pickup</h3>
 
   <%= form_for :filter, url: availabilities_path, 
@@ -12,7 +9,16 @@
     <%= form.submit "Find a Charity Coming to You" %>
   <% end %>
 </div>
+  <div class="right-container"></div>
+</div>
+<div class="selection_form"></div>
 
 <% if params[:filter] %>
-  <%= render availabilities %>
+  <% if availabilities.empty? %>
+    <h3>We're sorry. No organization is schedule to visit your town within the next two months. Many of our charities operate in the Greater Boston Area.</h3>
+  <% else %>
+    <ul>
+      <%= render availabilities %>
+    </ul>
+  <% end %>
 <% end %>

@@ -21,24 +21,21 @@
           <ul id="navigation-menu">
             <% if signed_in? && current_user.admin? %>
               <li class="nav-link"><%= link_to "Dashboard", admin_root_path %></li>
-
               <li class="nav-link">
-                <%= link_to "Review Calendar",
+                <%= link_to "Profile",
                   admin_charity_availabilities_path(current_user.charity_id) %>
               </li>
-
-              <li class="nav-link"><%= link_to "Pickups" %></li>
-              <li class="nav-link more"><a href="javascript:void(0)">More</a>
-                <ul class="submenu">
-                  <li><%= link_to "Towns / Routes"%></li>
-                  <li><%= link_to "Inventory"%></li>
-                </ul>
+              <li class="nav-link">
+                <%= link_to "Contact Support",
+                  admin_charity_availabilities_path(current_user.charity_id) %>
               </li>
-              <%= link_to Charity.find(current_user.charity_id).name %>
+              <li class="nav-link">
+                Admin: <%= Charity.find(current_user.charity_id).name %>
+              </li>
             <% else %>
-              <li class="nav-link"><%= link_to "Donate Today", 
+              <li class="nav-link"><%= link_to "Donate Today",
                 availabilities_path %></li>
-              <li class="nav-link"><%= link_to "About Our Organization", 
+              <li class="nav-link"><%= link_to "About Our Organization",
                 availabilities_path %></li>
             <% end %>
           </ul>
@@ -49,14 +46,44 @@
             <%= link_to "Sign Up", new_user_path, class: "sign-up" %>
           </div>
         <% else %>
-          <%= link_to "Sign out", session_path, 
+          <%= link_to "Sign out", session_path,
             method: :delete, class: "sign-out" %>
         <% end %>
       </div>
     </header>
     <% if signed_in? && current_user.admin? %>
       <div id="dash-container">
-        <div id="dash-side-bar"></div>
+         <div id="dash-side-navigation-container">
+           <div class="side-bar-nav" role="banner">
+             <h1 class="logo">
+               <a href="#">donation<span>station</span></a>
+             </h1>
+             <div class="nav-wrap">
+               <div class="side-nav" role="navigation">
+                 <ul class="unstyled list-hover-slide">
+                   <li><%= link_to "Create New Route",
+                       admin_charity_path(current_user.charity_id,
+                                         route: true) %>
+                   </li>
+                   <li><%= link_to "Scheduled Routes", 
+                     admin_charity_path(current_user.charity_id, 
+                                        schedule: true) %>
+                   </li>
+ 
+                   <li><%= link_to "Current Towns",
+                     admin_charity_path(current_user.charity_id, 
+                                        current_towns: true) %>
+                   </li>
+ 
+                   <li><%= link_to "Reports & Stats",
+                     admin_charity_path(current_user.charity_id,
+                                       reportstats: true) %>
+                   </li>
+                 </ul>
+               </div>
+             </div>
+           </div>
+         </div>
         <div id="main-container">
           <%= yield %>
         </div>

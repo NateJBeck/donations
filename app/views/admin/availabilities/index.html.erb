@@ -1,14 +1,7 @@
-<h2>Calendar</h2>
-<% @calendar.each do |date, availabilities| %>
-  <h3>
-    <%= link_to date.strftime("%A, %B %d, %Y"), 
-      admin_charity_pickups_path(@charity, date: date) %>
-  </h3>
-
-  <% availabilities.each do |availability| %>
-    <%= render "availabilities",
-      availability: availability,
-      town: availability.town,
-      charity: @charity %>
-  <% end %>
+<% if params[:tomorrow] %>
+  <%= render "tomorrow", availabilities: @tomorrows_availabilities %>
+<% elsif params[:week] %>
+  <%= render "upcoming", availabilities: @upcoming_availabilities %>
+<% else %>
+  <%= render "all_availabilities", calendar: @all_availabilities_calendar %>
 <% end %>
