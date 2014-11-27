@@ -13,21 +13,16 @@
   <div id="container">
     <header class="navigation">
       <div class="navigation-wrapper">
-        <a href="javascript:void(0)" class="logo">
-          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
-        </a>
         <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
         <div class="nav">
           <ul id="navigation-menu">
             <% if signed_in? && current_user.admin? %>
               <li class="nav-link"><%= link_to "Dashboard", admin_charity_path(current_user.charity_id, schedule: true) %></li>
               <li class="nav-link">
-                <%= link_to "Organization Profile",
+                <%= link_to "Profile",
                   admin_charity_availabilities_path(current_user.charity_id) %>
               </li>
               <li class="nav-link"><%= link_to "Contact Support" %></li>
-              <li class="nav-link">Administrator:
-                <%= Charity.find(current_user.charity_id).name %></li>
             <% else %>
               <li class="nav-link"><%= link_to "Donate Today",
                 availabilities_path %></li>
