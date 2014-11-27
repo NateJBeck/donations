@@ -1,8 +1,17 @@
-<%= render @availability %>
-<%= @pickup.address %><br />
-<%= @pickup.donor.email %>
+<div id="main-container">
+<div class="left-container">
+<h3>You've scheduled a pickup. Please confirm via email, or by using the following link. You will receive an email
+    <%= @availability.charity.name %> on 
+    <%= @availability.date.strftime("%B %d, %Y") %></h3>
 
-<h4>
-  <%= button_to "Confirm Donation", 
-    pickup_pickup_confirmations_path(@pickup) %>
-</h4>
+  <%= render @availability %>
+  <%= @pickup.address %><br />
+  <%= @pickup.donor.email %>
+
+  <h4>
+    <%= button_to "Confirm Donation", 
+      pickup_pickup_confirmations_path(@pickup) %>
+  </h4>
+
+</div>
+<div class="right-container"></div></div>

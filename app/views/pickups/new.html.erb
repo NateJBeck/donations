@@ -1,5 +1,11 @@
+<div id="main-container">
+<div class="left-container">
 <h3>Schedule Your Donation to
-<%= Charity.find(@availability.charity_id).name %> on 
+<%= @availability.charity.name %> on 
 <%= @availability.date.strftime("%B %d, %Y") %></h3>
 
+<div class="form-container"></div>
 <%= render "form", pickup: @pickup, availability: @availability %>
+</div>
+<div class="right-container"></div>
+</div>

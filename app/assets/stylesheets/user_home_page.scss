@@ -1,0 +1,21 @@
+#main-container {
+  height: 25em;
+
+  .left-container {
+    @include span-columns(5.8, "block-collapse");
+    height: 100%;
+    border: 2px solid red;
+  }
+
+  .right-container {
+    @include span-columns(6.2);
+    height: 100%;
+
+    border: 2px solid red;
+  }
+}
+
+.selection_form {
+  height: 5em;
+  background-color: black;
+}
