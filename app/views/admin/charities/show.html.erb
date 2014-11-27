@@ -1,21 +1,9 @@
-<div class="choice-container"><ul>
-<li class="choice-button">
-  <%= link_to "Tomorrow",
-    admin_charity_availabilities_path(@charity, tomorrow: Date.tomorrow) %>
-</li>
-<li class="choice-button">
-  <%= link_to "Upcoming Week", 
-    admin_charity_availabilities_path(@charity, week: "th,ew,eek") %>
-</li>
-<li class="choice-button">
-  <%= link_to "Next Month",
-    admin_charity_availabilities_path(@charity) %>
-</li>
-
-  <%= link_to "Create New Availability",
-    new_admin_charity_availability_path(@charity) %>
-
-  <%= link_to "Add new town", new_admin_charity_presence_path(@charity) %>
-  <%= link_to "Review Your Calendar", admin_charity_availabilities_path(@charity) %>
-  </ul>
-</div>
+<% if params[:schedule] %>
+  <%= render "charity_schedule" %>
+<% elsif params[:current_towns] %>
+  <%= render "current_towns" %>
+<% elsif params[:reportstats] %>
+  <%= render "reports_and_stats" %>
+<% elsif params[:route] %>
+  <%= render "create_route" %>
+<% end %>
