@@ -1,7 +1,9 @@
 class Admin::AvailabilitiesController < AdminController
   def index
     @charity = Charity.find(params[:charity_id])
-    @calendar = @charity.availabilities.group_by(&:date)
+    @tomorrows_availabilities = @charity.tomorrows_availabilities
+    @upcoming_availabilities = @charity.upcoming_availabilities
+    @all_availabilities_calendar = @charity.availability_calendar
   end
 
   def new

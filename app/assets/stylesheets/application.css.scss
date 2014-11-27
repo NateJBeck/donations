@@ -9,13 +9,12 @@
 @import "header";
 @import "footer";
 @import "dashboard";
-@import "accordion";
 @import "choices";
 @import "user_home_page";
 @import "pickup_new";
 
 body {
-  background-color: #E8E8E8;
+  background-color: #DFDBD9; // #11052B;
   $base-background-color: #E8E8E8;
   font-family: 'PT Sans', sans-serif;
 }

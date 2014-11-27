@@ -1,0 +1,10 @@
+<h2>UpcomingW!!!</h2>
+
+<% availabilities.each do |date, availabilities| %>
+  <h1><%= date %></h1>
+  <% availabilities.each do |availability| %>
+    <%= availability.confirmed_pickups.count %>
+    <h1><%= availability.town.name %></h1>
+    <%= availability.pickups.count %>
+  <% end %>
+<% end %>
