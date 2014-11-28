@@ -1,0 +1,97 @@
+.schedule-title {
+  margin-top: 1em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.schedules-choices-container {
+  margin: .5em;
+  height: 100%;
+
+  .schedule-option-button {
+    @include span-columns(8);
+    @include shift(2);
+
+    margin-top: 1em;
+    border-radius: 5px;
+    height: 12em;
+    background-color: #DFDBD9;
+    box-shadow: 0 0 3px #888888;
+
+    .bar {
+      height: 2em;
+      border-bottom: 1px solid black;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      padding-left: .3em;
+      padding-top: .2em;
+      background-color: #6d6d6f;
+      color: black;
+
+      a {
+        color: white;
+
+        :hover {
+          color: white;
+        }
+      }
+    }
+
+    .info-left-container {
+      @include span-columns(5.8, "block-collapse");
+      background-color: #f0f0f4;
+      border-bottom-left-radius: 5px;
+      border-bottom: 1px solid white;
+      border-top: 1px solid white;
+      border-left: 1px solid white;
+      border-right: 1px solid #9aaed0;
+      height: 10em;
+
+      .specific-info-container {
+        height: 33.333%;
+        border-top: 1px solid white;
+        border-bottom: 1px solid gray;
+        border-right: 1px solid white;
+        text-align: center;
+
+        h6 {
+          font-weight: 800;
+          color: black;
+        }
+
+        .icon-container {
+          float: left;
+          padding-top: .6em;
+          height: 80%;
+          width: 20%;
+          text-align: center;
+
+          img {
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    .info-right-container {
+      @include span-columns(6.2, "block-collapse");
+      background-color: #dbf0f6;
+      border-bottom-right-radius: 5px;
+      border: 1px solid white;
+      height: 10em;
+      text-align: center;
+
+      .view-text {
+        height: 2em;
+      }
+
+      img {
+        padding-top: 1em;
+        @include span-columns(7.5);
+        @include shift(2.25);
+
+        height: 80%;
+      }
+    }
+  }
+}

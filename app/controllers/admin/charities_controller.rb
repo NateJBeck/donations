@@ -4,6 +4,7 @@ class Admin::CharitiesController < AdminController
     @towns = @charity.towns.order(:name)
     @availability = Availability.new
     @availabilities = @charity.availabilities
+    @tomorrow = Date.tomorrow
   end
 
   private

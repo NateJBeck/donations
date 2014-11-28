@@ -1,16 +1,101 @@
-<div class="schedules-options-container">
-<ul>
-  <li class="choice-button">
-    <%= link_to "Tomorrow",
-      admin_charity_availabilities_path(@charity, tomorrow: Date.tomorrow) %>
-</li>
-<li class="choice-button">
-  <%= link_to "Upcoming Week", 
-    admin_charity_availabilities_path(@charity, week: true) %>
-   </li>
-   <li class="choice-button">
-     <%= link_to "Next Month",
-       admin_charity_availabilities_path(@charity) %>
- </li>
-</ul>
+<div class="schedule-title"><h3>Scheduled Routes</h3></div>
+
+<div class="schedules-choices-container">
+  <ul>
+    <li class="schedule-option-button">
+      <div class="bar">
+        <h5><%= link_to "Tomorrow",
+          admin_charity_availabilities_path(@charity, tomorrow: @tomorrow) %>
+        </h5>
+      </div>
+      <div class="info-left-container">
+        <div class="specific-info-container">
+          <div class="icon-container">
+            <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
+          </div>
+          <h6>Towns</h6>
+        </div>
+        <div class="specific-info-container">
+          <div class="icon-container">
+            <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
+          </div>
+          <h6>Confirmed Pickups</h6>
+        </div>
+        <div class="specific-info-container">
+          <div class="icon-container">
+            <%= image_tag("http://www.clker.com/cliparts/9/4/a/5/1341948541557248331Icon%20with%20Question%20Mark.svg.hi.png") %>
+          </div>
+          <h6>Total Pickups</h6>
+        </div>
+      </div>
+      <div class="info-right-container">
+        <%= image_tag("http://png-3.findicons.com/files/icons/2305/mobile_icon_set/128/04_maps.png") %>
+        <div class="view-text"><h5>View on Map</h5></div>
+      </div>
+    </li>
+
+    <li class="schedule-option-button">
+      <div class="bar">
+        <h5><%= link_to "Upcoming Week",
+          admin_charity_availabilities_path(@charity, week: true) %>
+        </h5>
+      </div>
+      <div class="info-left-container">
+        <div class="specific-info-container">
+          <div class="icon-container">
+            <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
+          </div>
+          <h6>Towns:</h6>
+        </div>
+        <div class="specific-info-container">
+          <div class="icon-container">
+            <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
+          </div>
+          <h6>Confirmed Pickups</h6>
+        </div>
+        <div class="specific-info-container">
+          <div class="icon-container">
+            <%= image_tag("http://www.clker.com/cliparts/9/4/a/5/1341948541557248331Icon%20with%20Question%20Mark.svg.hi.png") %>
+          </div>
+          <h6>Total Pickups</h6>
+        </div>
+      </div>
+      <div class="info-right-container">
+        <%= image_tag("http://icongal.com/gallery/image/155079/actions_document_preview.png") %>
+        <div class="view-text"><h5>Preview List</h5></div>
+      </div>
+    </li>
+
+    <li class="schedule-option-button">
+      <div class="bar">
+        <h5><%= link_to "All Scheduled Routes",
+          admin_charity_availabilities_path(@charity) %>
+        </h5>
+      </div>
+      <div class="info-left-container">
+        <div class="specific-info-container">
+          <div class="icon-container">
+            <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
+          </div>
+          <h6>Towns:</h6>
+        </div>
+        <div class="specific-info-container">
+          <div class="icon-container">
+            <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
+          </div>
+          <h6>Confirmed Pickups</h6>
+        </div>
+        <div class="specific-info-container">
+          <div class="icon-container">
+            <%= image_tag("http://www.clker.com/cliparts/9/4/a/5/1341948541557248331Icon%20with%20Question%20Mark.svg.hi.png") %>
+          </div>
+          <h6>Total Pickups</h6>
+        </div>
+      </div>
+      <div class="info-right-container">
+        <%= image_tag("http://icongal.com/gallery/image/155079/actions_document_preview.png") %>
+        <div class="view-text"><h5>Preview List</h5></div>
+      </div>
+    </li>
+  </ul>
 </div>
