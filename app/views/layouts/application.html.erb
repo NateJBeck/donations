@@ -62,8 +62,8 @@
                <div class="side-nav" role="navigation">
                  <ul class="unstyled list-hover-slide">
                    <li><%= link_to "Create New Route",
-                       admin_charity_path(current_user.charity_id,
-                                         route: true) %>
+                     new_admin_charity_availability_path(
+                       current_user.charity_id) %>
                    </li>
                    <li><%= link_to "Scheduled Routes", 
                      admin_charity_path(current_user.charity_id, 

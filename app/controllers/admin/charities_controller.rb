@@ -1,7 +1,7 @@
 class Admin::CharitiesController < AdminController
   def show
     @charity = find_admins_charity
-    @towns = @charity.towns
+    @towns = @charity.towns.order(:name)
     @availability = Availability.new
     @availabilities = @charity.availabilities
   end

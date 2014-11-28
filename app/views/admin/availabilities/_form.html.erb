@@ -3,11 +3,13 @@
 
   <%= form.hidden_field :charity_id, :value => charity.id %>
 
+  <div>
   <%= form.collection_select :town_id,
     charity.towns, :id, :name, { :prompt => "Select Town" } %>
+  </div>
 
   <div>
-    <%= form.label :date %>
+    <%= form.label "Choose a Date for this Route" %>
     <%= form.date_field :date %>
   </div>
 
