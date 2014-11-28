@@ -4,6 +4,8 @@ class Admin::AvailabilitiesController < AdminController
     @tomorrows_availabilities = @charity.tomorrows_availabilities
     @upcoming_availabilities = @charity.upcoming_availabilities
     @all_availabilities_calendar = @charity.availability_calendar
+
+    @tomorrows_confirmed = add_up_tomorrows_confirmed_pickups
   end
 
   def new
@@ -32,6 +34,12 @@ class Admin::AvailabilitiesController < AdminController
   end
 
   private
+
+  def add_up_tomorrows_confirmed_pickups
+    @tomorrows_availabilities.map {
+      |avail| avail.confirmed_pickups.count
+    }.inject(:+)
+  end
 
   def find_availability_from_url
     Availability.find(params[:id])
