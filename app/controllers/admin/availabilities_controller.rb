@@ -9,12 +9,13 @@ class Admin::AvailabilitiesController < AdminController
   def new
     @charity = find_charity_from_url
     @availability = @charity.availabilities.new
+    @newly_made_availabilities = @charity.recently_created_availabilities
   end
 
   def create
     charity = find_charity_from_url
     @availability = charity.availabilities.create(availability_params)
-    redirect_to admin_charity_path(charity)
+    redirect_to new_admin_charity_availability_path(charity)
   end
 
   def show

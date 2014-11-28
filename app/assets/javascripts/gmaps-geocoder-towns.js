@@ -15,8 +15,8 @@ function createMap(){
 }
 
 function drawMap() {
-  $.each($(".pickup"), function(i, pickup) {
-    var listingAddress = $(pickup).find(".pickup_address").html();
+  $.each($(".town"), function(i, town) {
+    var listingAddress = $(town).find(".town_name").html();
     geocodeAndAddMarker(listingAddress);
   });
 };

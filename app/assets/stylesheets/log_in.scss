@@ -1,0 +1,10 @@
+.log-in-container {
+  @include span-columns(8);
+  @include shift(2);
+
+  margin-top: 2em;
+  padding: 2em;
+  border: 2px solid #04435E;
+  border-radius: 5px;
+  height: 100%;
+}

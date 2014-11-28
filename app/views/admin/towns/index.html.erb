@@ -1,0 +1,12 @@
+<div id="map_wrapper">
+  <div id="map_canvas"></div>
+</div>
+
+<ul>
+  <div class="towns" %>
+    <%= render @towns %>
+  </div>
+</ul>
+
+Add a new town to pickup in
+<%= render "admin/presences/form", charity: @charity, presence: @presence %>

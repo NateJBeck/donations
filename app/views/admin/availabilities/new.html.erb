@@ -6,3 +6,11 @@
         availability: @availability %>
     </div>
 </div>
+
+<div class="recently-created-routes">
+  <h3>Recent Routes(made in last 10hrs)</h3>
+  <ul>
+    <%= render "newly_created_availabilities", 
+      availabilities: @newly_made_availabilities %>
+  </ul>
+</div>

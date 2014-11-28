@@ -9,7 +9,7 @@ class Admin::PresencesController < AdminController
     charity = find_charity_from_url
     @presence = charity.presences.new(presence_params)
     if @presence.save
-      redirect_to admin_charity_path(charity)
+      redirect_to admin_charity_towns_path(charity)
     else
       render :new
     end

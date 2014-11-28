@@ -24,3 +24,14 @@
     padding: 15px;
   }
 }
+
+.recently-created-routes {
+  padding: 2em;
+  text-align: center;
+  @include span-columns(8);
+  @include shift(2);
+
+  h4 {
+    color: blue;
+  }
+}

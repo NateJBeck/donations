@@ -1,18 +1,19 @@
 @import "bourbon";
 
-@import "base/grid-settings";
-@import "neat";
-@import "base/base";
+@import "base/grid-settings",
+        "neat",
+        "base/base";
 
-@import "select2";
-@import "pickup";
-@import "header";
-@import "footer";
-@import "dashboard";
-@import "user_home_page";
-@import "pickup_new";
-@import "create_new_route";
-@import "tomorrow_upcoming_availabilities";
+@import "select2",
+        "pickup",
+        "header",
+        "footer",
+        "dashboard",
+        "user_home_page",
+        "pickup_new",
+        "create_new_route",
+        "tomorrow_upcoming_availabilities",
+        "log_in";
 
 body {
   background-color: #DFDBD9; // #11052B;

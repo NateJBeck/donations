@@ -15,6 +15,10 @@ class Charity < ActiveRecord::Base
       group_by(&:date)
   end
 
+  def recently_created_availabilities
+    availabilities.where(created_at: [Time.current - 36000 .. Time.current])
+  end
+
   def availability_calendar
     availabilities.group_by(&:date)
   end
