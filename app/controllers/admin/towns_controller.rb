@@ -1,8 +1,9 @@
 class Admin::TownsController < AdminController
   def index
     @charity = find_charity_from_url
-    @towns = @charity.towns
+    @towns = @charity.towns.order(:name)
     @presence = @charity.presences.new
+    @presences = @charity.presences
   end
 
   private

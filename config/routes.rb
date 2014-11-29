@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :charities, only: [:show] do
       resources :availabilities, only: [:new, :create, :index, :show, :destroy]
       resources :pickups, only: [:index]
-      resources :presences, only: [:new, :create]
+      resources :presences, only: [:new, :create, :destroy]
       resources :towns, only: [:index]
     end
 

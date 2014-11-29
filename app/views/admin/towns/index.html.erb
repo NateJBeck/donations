@@ -1,12 +1,16 @@
+<h4>Currently operating in <%= @towns.count %> towns</h4>
+<br>
 <div id="map_wrapper">
   <div id="map_canvas"></div>
 </div>
 
-<ul>
-  <div class="towns" %>
+<div class="towns-container" %>
+  <ul>
     <%= render @towns %>
-  </div>
-</ul>
+  </ul>
+</div>
 
-Add a new town to pickup in
-<%= render "admin/presences/form", charity: @charity, presence: @presence %>
+<div class="presence-form-container">
+  <h5>Add New Town</h5>
+  <%= render "admin/presences/form", charity: @charity, presence: @presence %>
+</div>

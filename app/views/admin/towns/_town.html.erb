@@ -1,7 +1,10 @@
-<div class="pickup">
-  <li>
+<li>
+  <div class="pickup">
     <div class="pickup_address">
       <%= town.name %>, MA
     </div>
-  </li>
-</div>
+    <%= link_to image_tag(
+      "https://cdn3.iconfinder.com/data/icons/musthave/256/Remove.png"),
+      admin_charity_presence_path(@charity, @presences.where(town_id: town.id).first.id), method: :delete %>
+  </div>
+</li>

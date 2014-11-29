@@ -15,6 +15,14 @@ class Admin::PresencesController < AdminController
     end
   end
 
+  def destroy
+    charity = Charity.find(params[:charity_id])
+    presence = Presence.find(params[:id])
+    presence.destroy
+
+    redirect_to admin_charity_towns_path(charity)
+  end
+
   private
 
   def presence_params

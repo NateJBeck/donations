@@ -1,0 +1,21 @@
+.towns-container {
+  height: 20px;
+  margin: 2em;
+
+  li {
+    @include span-columns(3);
+    margin-top: 1em;
+    border: 1px solid red;
+    border-radius: 4px;
+
+    img {
+      padding-top: 10px;
+      width: 20px;
+      height: 30px;
+    }
+  }
+}
+
+.presence-form-container {
+  margin-top: 29em;
+}
