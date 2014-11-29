@@ -1,5 +1,6 @@
 #map_wrapper {
-  width: 700px;
+  @include span-columns(10);
+  @include shift(1);
   height: 500px;
 }
 

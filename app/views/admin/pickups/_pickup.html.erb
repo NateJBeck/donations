@@ -1,7 +1,17 @@
-<div class="pickup">
-  <li>
+<tr>
+<td>
+  <div class="pickup">
     <div class="pickup_address">
       <%= pickup.address %>, <%= town_name %> MA
     </div>
-  </li>
-</div>
+  </div>
+</td>
+<td>
+  Items
+</td>
+<td>
+  Location
+</td>
+<td>
+  <%= pickup.created_at.strftime("%B %d") %>
+</td>

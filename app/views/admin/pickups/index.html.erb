@@ -1,11 +1,22 @@
+<h3> Showing: Confirmed Pickups for <%= @date %></h3>
 <div id="map_wrapper">
   <div id="map_canvas"></div>
 </div>
-
-<h2>All pickups for <%= @date %></h2>
-<% @availabilities.each do |availability| %>
-  <div class="pickups" %>
-  <%= render availability.confirmed_pickups, town_name:
-    availability.town.name %>
-  </div>
-<% end %>
+<div class="table-holder">
+  <table class="table-borders">
+    <thead>
+      <tr>
+        <th>Address</th>
+        <th>Items</th>
+        <th>Location</th>
+        <th>Scheduled On</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @availabilities.each do |availability| %>
+        <%= render availability.confirmed_pickups, 
+          town_name: availability.town.name %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,10 +1,83 @@
-<h2>UpcomingW!!!</h2>
+<h3>This Week</h3>
+<h4>Confirmed Pickups: <%= confirmed_count %></h4>
+<div id="map_wrapper">
+  <div id="map_canvas"></div>
+</div>
 
-<% availabilities.each do |date, availabilities| %>
-  <h1><%= date %></h1>
-  <% availabilities.each do |availability| %>
-    <%= availability.confirmed_pickups.count %>
-    <h1><%= availability.town.name %></h1>
-    <%= availability.pickups.count %>
-  <% end %>
-<% end %>
+<div class="table-holder">
+  <table class="table-borders">
+
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Town / City</th>
+        <th># Pickups</th>
+        <th># Confirmed</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% upcoming_availabilities.each do |date, availabilities| %>
+        <tr>
+          <td><%= date.strftime("%a, %B %d") %></td>
+
+          <% if availabilities.count > 1 %>
+            <% availabilities.each do |availability| %>
+              <td>
+                <div class="pickup">
+                  <div class="pickup_address">
+                    <%= availability.town.name %>, MA
+                  </div>
+                </div>
+              </td>
+
+              <td><%= availability.pickups.count %></td>
+
+              <td><%= availability.confirmed_pickups.count %></td>
+
+              <% if availability.pickups.count == 0 %>
+                <td>
+                  <div class="delete-avail-button">
+                    <%= link_to image_tag("https://cdn3.iconfinder.com/data/icons/musthave/256/Remove.png"),
+                      admin_charity_availability_path(availability.charity, availability),
+                      method: :delete %>
+                </div>
+                </td>
+              <% else %>
+                <td>Cannot Delete</td>
+              <% end %>
+              </tr>
+            <td></td>
+          <% end %>
+        <% else %>
+          <td>
+            <div class="pickup">
+              <div class="pickup_address">
+                <%= availabilities.first.town.name %>, MA
+              </div>
+            </div>
+          </td>
+
+          <td><%= availabilities.first.pickups.count %></td>
+
+          <td><%= availabilities.first.confirmed_pickups.count %></td>
+
+          <% if availabilities.first.pickups.count == 0 %>
+            <td>
+              <div class="delete-avail-button">
+                <%= link_to image_tag(
+                  "https://cdn3.iconfinder.com/data/icons/musthave/256/Remove.png"
+                ), admin_charity_availability_path(
+                  availabilities.first.charity, availabilities.first
+                ), method: :delete %>
+            </div>
+            </td>
+          <% else %>
+            <td></td>
+          <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>

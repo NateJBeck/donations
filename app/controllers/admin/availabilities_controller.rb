@@ -5,7 +5,13 @@ class Admin::AvailabilitiesController < AdminController
     @upcoming_availabilities = @charity.upcoming_availabilities
     @all_availabilities_calendar = @charity.availability_calendar
 
-    @tomorrows_confirmed = add_up_tomorrows_confirmed_pickups
+    @tomorrows_confirmed = add_up_tomorrows_confirmed_pickups(
+      @tomorrows_availabilities
+    )
+
+    @weeks_confirmed_count = add_up_weeks_confirmed_pickups(
+      @upcoming_availabilities
+    )
   end
 
   def new
@@ -35,10 +41,18 @@ class Admin::AvailabilitiesController < AdminController
 
   private
 
-  def add_up_tomorrows_confirmed_pickups
-    @tomorrows_availabilities.map {
-      |avail| avail.confirmed_pickups.count
-    }.inject(:+)
+  def add_up_tomorrows_confirmed_pickups(availabilities)
+    availabilities.map { |avail| avail.confirmed_pickups.count }.inject(:+)
+  end
+
+  def add_up_weeks_confirmed_pickups(availabilities_grouped_by_date)
+    count = 0
+    availabilities_grouped_by_date.each do |date, availabilities|
+      availabilities.each do |availability|
+        count += availability.confirmed_pickups.count
+      end
+    end
+    count
   end
 
   def find_availability_from_url

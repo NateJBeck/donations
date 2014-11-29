@@ -2,22 +2,32 @@
   <h3>You have 0 routes scheduled tomorrow 
     (<%= Date.tomorrow.strftime("%B %d") %>)
   </h3>
+  <%= link_to new_charity_availability_path(@charity) %>
 <% else %>
-  <h3>Donations Scheduled for <%= Date.tomorrow.strftime("%B %d") %></h3>
+  <h3><%= Date.tomorrow.strftime("%B %d") %></h3>
+  <h4>
+    <%= link_to "Total Confirmed Pickups: #{ @tomorrows_confirmed }", 
+      admin_charity_pickups_path(@charity, date: Date.tomorrow) %>
+  </h4>
+
   <% if @tomorrows_confirmed > 0 %>
     <div id="map_wrapper">
       <div id="map_canvas"></div>
     </div>
-  <% end %>
-  <% @tomorrows_availabilities.each do |availability| %>
-    <div class="pickup">
-      <div class="pickup_address">
-        <%= availability.town.name %>, MA
-      </div>
+    <div class="table-holder">
+      <table class="table-borders">
+        <thead>
+          <tr>
+            <th>Town / City</th>
+            <th># Pickups</th>
+            <th># Confirmed</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @tomorrows_availabilities %>
+        </tbody>
+      </table>
     </div>
-    Scheduled: <%= availability.pickups.count %>
-    Confirmed: <%= availability.confirmed_pickups.count %>
-    <% end %>
   <% end %>
-
-  <%= link_to "Click to See All Pickups", admin_charity_pickups_path(@charity, date: Date.tomorrow) %>
+<% end %>

@@ -1,7 +1,7 @@
 <% if params[:tomorrow] %>
   <%= render "tomorrow", availabilities: @tomorrows_availabilities %>
 <% elsif params[:week] %>
-  <%= render "upcoming", availabilities: @upcoming_availabilities %>
+  <%= render "upcoming", upcoming_availabilities: @upcoming_availabilities, confirmed_count: @weeks_confirmed_count %>
 <% else %>
   <%= render "all_availabilities", calendar: @all_availabilities_calendar %>
 <% end %>

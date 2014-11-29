@@ -1,8 +1,25 @@
-<li>
-  <%= availability.find_town_from(availability.town_id) %>
-  - <%= availability.find_charity_from(availability.charity_id) %>
-  - <%= availability.date.strftime("%a, %B %d, %Y") %>
-  <%= link_to "Delete Availability",
-    admin_charity_availability_path(availability.charity, availability),
-    method: :delete %>
-</li>
+<tr>
+<td>
+  <div class="pickup">
+    <div class="pickup_address">
+      <%= availability.town.name %>, MA
+    </div>
+  </div>
+</td>
+<td>
+  <%= availability.pickups.count %>
+</td>
+<td>
+  <%= availability.confirmed_pickups.count %>
+</td>
+<% if availability.pickups.count == 0 %>
+  <td>
+    <div class="delete-avail-button">
+      <%= link_to image_tag("https://cdn3.iconfinder.com/data/icons/musthave/256/Remove.png"),
+        admin_charity_availability_path(availability.charity, availability),
+        method: :delete %>
+    </div>
+  </td>
+<% else %>
+  <td>Cannot Delete</td>
+<% end %></tr>
