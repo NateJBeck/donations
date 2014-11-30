@@ -1,23 +1,14 @@
 class Admin::AvailabilitiesController < AdminController
   def index
     @charity = Charity.find(params[:charity_id])
-    @tomorrows_availabilities = @charity.tomorrows_availabilities
-    @upcoming_availabilities = @charity.upcoming_availabilities
-    @all_availabilities_calendar = @charity.availability_calendar
-
-    @tomorrows_confirmed = add_up_tomorrows_confirmed_pickups(
-      @tomorrows_availabilities
-    )
-
-    @weeks_confirmed_count = add_up_weeks_confirmed_pickups(
-      @upcoming_availabilities
-    )
+    @availabilities = @charity.availabilities
+    @weeks_confirmed_count = weeks_confirmed(@availabilities.for_the_week)
   end
 
   def new
     @charity = find_charity_from_url
     @availability = @charity.availabilities.new
-    @newly_made_availabilities = @charity.recently_created_availabilities
+    @newly_made_availabilities = @charity.availabilities.recently_created
   end
 
   def create
@@ -41,13 +32,9 @@ class Admin::AvailabilitiesController < AdminController
 
   private
 
-  def add_up_tomorrows_confirmed_pickups(availabilities)
-    availabilities.map { |avail| avail.confirmed_pickups.count }.inject(:+)
-  end
-
-  def add_up_weeks_confirmed_pickups(availabilities_grouped_by_date)
+  def weeks_confirmed(availabilities_grouped_by_date)
     count = 0
-    availabilities_grouped_by_date.each do |date, availabilities|
+    availabilities_grouped_by_date.each do |_date, availabilities|
       availabilities.each do |availability|
         count += availability.confirmed_pickups.count
       end

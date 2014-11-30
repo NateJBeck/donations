@@ -1,4 +1,4 @@
-<% if @tomorrows_availabilities.empty? %>
+<% if availabilities.empty? %>
   <h3>You have 0 routes scheduled tomorrow 
     (<%= Date.tomorrow.strftime("%B %d") %>)
   </h3>
@@ -6,11 +6,11 @@
 <% else %>
   <h3><%= Date.tomorrow.strftime("%B %d") %></h3>
   <h4>
-    <%= link_to "Total Confirmed Pickups: #{ @tomorrows_confirmed }", 
+    <%= link_to "Total Confirmed Pickups: #{ availabilities.confirmed_count }", 
       admin_charity_pickups_path(@charity, date: Date.tomorrow) %>
   </h4>
 
-  <% if @tomorrows_confirmed > 0 %>
+  <% if availabilities.confirmed_count > 0 %>
     <div id="map_wrapper">
       <div id="map_canvas"></div>
     </div>
@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-          <%= render @tomorrows_availabilities %>
+          <%= render availabilities %>
         </tbody>
       </table>
     </div>

@@ -1,6 +1,6 @@
 <% availabilities.each do |availability| %>
   <li>
-    <h4><%= link_to availability.town.name, admin_charity_availability_path(availability.charity_id, availability) %></h4>
+    <h4><%= availability.town.name %></h4>
     <h6><%= availability.date.strftime("%A - %B %d, %Y") %></h6>
   </li>
 <% end %>

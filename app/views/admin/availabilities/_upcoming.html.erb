@@ -18,9 +18,9 @@
     </thead>
 
     <tbody>
-      <% upcoming_availabilities.each do |date, availabilities| %>
+      <% availabilities.each do |date, availabilities| %>
         <tr>
-          <td><%= date.strftime("%a, %B %d") %></td>
+          <td><strong><%= date.strftime("%a, %B %d") %></strong></td>
 
           <% if availabilities.count > 1 %>
             <% availabilities.each do |availability| %>
@@ -47,8 +47,10 @@
               <% else %>
                 <td>Cannot Delete</td>
               <% end %>
-              </tr>
-            <td></td>
+            </tr>
+            <% if availability != availabilities.last %>
+              <td></td>
+            <% end%>
           <% end %>
         <% else %>
           <td>
@@ -74,7 +76,7 @@
             </div>
             </td>
           <% else %>
-            <td></td>
+            <td>Cannot Delete</td>
           <% end %>
           </tr>
         <% end %>

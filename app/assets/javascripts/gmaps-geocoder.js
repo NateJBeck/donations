@@ -50,5 +50,3 @@ function setBounds(latlng) {
   window.mapBound.extend(latlng);
   window.map.fitBounds(window.mapBound)
 }
-
-//google.maps.event.addDomListener(window, 'load', initialize);
