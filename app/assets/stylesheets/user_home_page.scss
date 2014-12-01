@@ -1,26 +1,46 @@
 #main-container {
   height: 25em;
+}
 
-  .left-container {
-    @include span-columns(5.8, "block-collapse");
-    height: 100%;
-    border: 2px solid red;
+#home-container {
+  background-color: #04435E;
+  height: 25em;
+  text-align: center;
+
+  .front-title {
+    @include span-columns(6);
+    @include shift(3);
+    padding-top: 25%;
+    color: white;
   }
 
-  .right-container {
-    @include span-columns(6.2);
-    height: 100%;
+  .filtering-form {
+    @include span-columns(6);
+    @include shift(3);
+    margin-top: 1em;
+    border-radius: 10px;
 
-    border: 2px solid red;
+    .select2-container {
+      @include span-columns(10.2, "block-collapse");
+      height: 50px;
+      float: left;
+
+      .select2-choice {
+        font-size: 180%;
+        padding-top: 7px;
+        height: 40px;
+      }
+    }
   }
 }
+
+.charity-bar-container {
+    height: 5em;
+    background-color: black;
+    border: 2px solid black;
+  }
 
 .availability {
   @include span-columns(3);
   border: 2px solid red;
-}
-
-.selection_form {
-  height: 5em;
-  background-color: black;
 }

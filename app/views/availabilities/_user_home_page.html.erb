@@ -1,24 +1,26 @@
-<div id="main-container">
-<div class="left-container">
-  <h3>Schedule your free donation pickup</h3>
+<div id="home-container">
+  <div class="front-title">
+    <h3>Give to a charity coming to you</h3>
+    <h6>Easy, free and confidential donation pickups</h6>
+  </div>
 
-  <%= form_for :filter, url: availabilities_path, 
+  <%= form_for :filter, html: { class: "filtering-form" }, 
+    url: availabilities_path,
     :method => 'get' do |form| %>
-    <%= form.collection_select :town_id, 
-      Town.order(:name), :id, :name, { prompt: "Enter Your Town" } %>
-    <%= form.submit "Find a Charity Coming to You" %>
+    <%= form.collection_select :town_id,
+      Town.order(:name), :id, :name, { prompt: "Find Your Town" } %>
+    <%= form.submit "GO" %>
   <% end %>
 </div>
-  <div class="right-container"></div>
-</div>
-<div class="selection_form"></div>
 
-<% if params[:filter] %>
-  <% if availabilities.empty? %>
-    <h3>We're sorry. No organization is schedule to visit your town within the next two months. Many of our charities operate in the Greater Boston Area.</h3>
-  <% else %>
-    <ul>
-      <%= render availabilities %>
-    </ul>
+  <div class="charity-bar-container"></div>
+
+  <% if params[:filter] %>
+    <% if availabilities.empty? %>
+      <h3>We're sorry. No organization is schedule to visit your town within the next two months. Many of our charities operate in the Greater Boston Area.</h3>
+    <% else %>
+      <ul>
+        <%= render availabilities %>
+      </ul>
+    <% end %>
   <% end %>
-<% end %>
