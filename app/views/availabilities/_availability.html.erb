@@ -1,9 +1,22 @@
 <li>
-<div class="availability">
-<%= availability.town.name %>
-<%= availability.charity.name %>
-<%= availability.date.strftime("%a, %B %d, %Y") %>
-<%= button_to "Schedule a Donation", 
-  new_availability_pickup_path(availability), method: :get %>
+  <div class="availability">
+    <div class="charity-name-from-search">
+      <strong><%= availability.charity.name %></strong>
+    </div>
+    <div class="town-name-from-search">
+      <%= availability.town.name %>
+    </div>
+
+<% if availability == @availabilities.first %>
+  <h1>WOW</h1>
+<% end%>
+
+
+    <div class="date-from-search">
+      <%= availability.date.strftime("%A, %b %d") %>
+    </div>
+
+    <%= button_to "Schedule my Donation", 
+      new_availability_pickup_path(availability), method: :get %>
   </div>
 </li>

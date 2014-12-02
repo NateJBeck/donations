@@ -1,8 +1,7 @@
 class AvailabilitiesController < ApplicationController
   def index
-    @availabilities = Availability.where(filter_params)
-    @upcoming_availabilities = @availabilities.
-      where(date: [Date.current + 1 .. Date.current + 60])
+    @availabilities = Availability.where(filter_params).order(:date)
+    @upcoming_availabilities = @availabilities.next_two_months
   end
 
   def show

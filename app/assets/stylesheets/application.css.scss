@@ -22,7 +22,3 @@ body {
   $base-background-color: #E8E8E8;
   font-family: 'PT Sans', sans-serif;
 }
-
-#container {
-  @include outer-container;
-}

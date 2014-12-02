@@ -13,14 +13,14 @@
   <% end %>
 </div>
 
-  <div class="charity-bar-container"></div>
+<div class="charity-bar-container"></div>
 
-  <% if params[:filter] %>
-    <% if availabilities.empty? %>
-      <h3>We're sorry. No organization is schedule to visit your town within the next two months. Many of our charities operate in the Greater Boston Area.</h3>
-    <% else %>
-      <ul>
-        <%= render availabilities %>
-      </ul>
-    <% end %>
+<% if params[:filter] %>
+  <% if availabilities.empty? %>
+    <h3>We're sorry. No organization is schedule to visit your town within the next two months. Many of our charities operate only in the Greater Boston Area.</h3>
+  <% else %>
+    <ul>
+      <%= render availabilities %>
+    </ul>
   <% end %>
+<% end %>

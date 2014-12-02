@@ -42,5 +42,22 @@
 
 .availability {
   @include span-columns(3);
-  border: 2px solid red;
+  height: 8em;
+  border: 2px solid black;
+  border-radius: 4px;
+  background-color: white;
+  padding: 10px;
+
+  .charity-name-from-search {
+    font-size: 120%;
+  }
+
+  .town-name-from-search {
+    display: none;
+  }
+
+  .date-from-search {
+    @include span-columns(11);
+    @include shift(.5);
+  }
 }
