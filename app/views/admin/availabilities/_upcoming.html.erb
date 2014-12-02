@@ -1,5 +1,5 @@
 <h3>This Week</h3>
-<h4>Confirmed Pickups: <%= confirmed_count %></h4>
+<h4>Confirmed Pickups: <%= weeks_confirmed %></h4>
 <div id="map_wrapper">
   <div id="map_canvas"></div>
 </div>
@@ -34,7 +34,7 @@
 
               <td><%= availability.pickups.count %></td>
 
-              <td><%= availability.confirmed_pickups.count %></td>
+              <td><%= availability.pickups.confirmed.count %></td>
 
               <% if availability.pickups.count == 0 %>
                 <td>
@@ -63,7 +63,7 @@
 
           <td><%= availabilities.first.pickups.count %></td>
 
-          <td><%= availabilities.first.confirmed_pickups.count %></td>
+          <td><%= availabilities.first.pickups.confirmed.count %></td>
 
           <% if availabilities.first.pickups.count == 0 %>
             <td>

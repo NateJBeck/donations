@@ -4,10 +4,10 @@
   <div id="map_canvas"></div>
 </div>
 
-<p>Confirmed: <%= @confirmed_pickups.count %></p>
+<p>Confirmed: <%= @availability.confirmed_pickups.count %></p>
 <ul>
   <div class="pickups">
-    <%= render @confirmed_pickups, town_name: @town_name %>
+    <%= render @availability.confirmed_pickups.count, town_name: @town_name %>
   </div>
 </ul>
-<p>Unconfirmed: <%= @unconfirmed_pickups.count %></p>
+<p>Unconfirmed: <%= @availability.unconfirmed_pickups.count %></p>

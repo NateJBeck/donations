@@ -2,15 +2,15 @@
   <h3>You have 0 routes scheduled tomorrow 
     (<%= Date.tomorrow.strftime("%B %d") %>)
   </h3>
-  <%= link_to new_charity_availability_path(@charity) %>
+  <%= link_to "Create a Route", new_admin_charity_availability_path(@charity) %>
 <% else %>
   <h3><%= Date.tomorrow.strftime("%B %d") %></h3>
   <h4>
-    <%= link_to "Total Confirmed Pickups: #{ availabilities.confirmed_count }", 
+    <%= link_to "Total Confirmed Pickups: #{ tomorrow_confirmed }", 
       admin_charity_pickups_path(@charity, date: Date.tomorrow) %>
   </h4>
 
-  <% if availabilities.confirmed_count > 0 %>
+  <% if tomorrow_confirmed > 0 %>
     <div id="map_wrapper">
       <div id="map_canvas"></div>
     </div>

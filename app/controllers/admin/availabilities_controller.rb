@@ -2,13 +2,13 @@ class Admin::AvailabilitiesController < AdminController
   def index
     @charity = Charity.find(params[:charity_id])
     @availabilities = @charity.availabilities
-    @weeks_confirmed_count = weeks_confirmed(@availabilities.for_the_week)
+    @calendar = AvailabilityCalendar.new(@availabilities)
   end
 
   def new
     @charity = find_charity_from_url
     @availability = @charity.availabilities.new
-    @newly_made_availabilities = @charity.availabilities.recently_created
+    @calendar = AvailabilityCalendar.new(@charity.availabilities)
   end
 
   def create
@@ -19,8 +19,6 @@ class Admin::AvailabilitiesController < AdminController
 
   def show
     @availability = find_availability_from_url
-    @confirmed_pickups = @availability.confirmed_pickups
-    @unconfirmed_pickups = @availability.unconfirmed_pickups
     @town_name = @availability.town.name
   end
 
@@ -31,16 +29,6 @@ class Admin::AvailabilitiesController < AdminController
   end
 
   private
-
-  def weeks_confirmed(availabilities_grouped_by_date)
-    count = 0
-    availabilities_grouped_by_date.each do |_date, availabilities|
-      availabilities.each do |availability|
-        count += availability.confirmed_pickups.count
-      end
-    end
-    count
-  end
 
   def find_availability_from_url
     Availability.find(params[:id])
