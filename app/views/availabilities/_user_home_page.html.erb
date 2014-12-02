@@ -1,19 +1,29 @@
 <div id="home-container">
-  <div class="front-title">
-    <h3>Give to a charity coming to you</h3>
-    <h6>Easy, free and confidential donation pickups</h6>
-  </div>
+  <div class="cd-fixed-bg cd-bg-1">
+    <h1>your used stuff can change lives</h1>
+    <div class="town-search-form-container">
+      <%= form_for :filter, html: { class: "filtering-form" }, 
+        url: availabilities_path,
+        :method => 'get' do |form| %>
+        <%= form.collection_select :town_id,
+          Town.order(:name), :id, :name, { prompt: "Enter Your Town" } %>
+        <%= form.submit "GO" %>
+      <% end %>
+    </div>
+  </div> 
+  <div class="cd-scrolling-bg cd-color-2">
+    <div class="cd-container">
+    </div> 
+  </div> 
 
-  <%= form_for :filter, html: { class: "filtering-form" }, 
-    url: availabilities_path,
-    :method => 'get' do |form| %>
-    <%= form.collection_select :town_id,
-      Town.order(:name), :id, :name, { prompt: "Find Your Town" } %>
-    <%= form.submit "GO" %>
-  <% end %>
+ <div class="cd-fixed-bg cd-bg-2">
+    <h1>SECOND</h1>
+  </div> 
+  <div class="cd-scrolling-bg cd-color-2">
+    <div class="cd-container">
+    </div> 
+  </div> 
 </div>
-
-<div class="charity-bar-container"></div>
 
 <% if params[:filter] %>
   <% if availabilities.empty? %>

@@ -3,42 +3,61 @@
 }
 
 #home-container {
-  background-color: #04435E;
-  height: 25em;
-  text-align: center;
+  height: 30em;
 
-  .front-title {
-    @include span-columns(6);
-    @include shift(3);
-    padding-top: 25%;
-    color: white;
-  }
 
-  .filtering-form {
-    @include span-columns(6);
-    @include shift(3);
-    margin-top: 1em;
-    border-radius: 10px;
+  .cd-fixed-bg {
+    min-height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
 
-    .select2-container {
-      @include span-columns(10.2, "block-collapse");
-      height: 50px;
-      float: left;
+    .town-search-form-container {
+      background-color: black;
+      margin-top: 24em;
+      color: white;
 
-      .select2-choice {
-        font-size: 180%;
-        padding-top: 7px;
-        height: 40px;
+      .filtering-form {
+        padding: 15px;
+
+        .select2-container {
+          @include span-columns(6.3, "block-collapse");
+          @include shift(2.7);
+
+          .select2-choice {
+            font-size: 180%;
+            padding-top: 7px;
+            height: 40px;
+          }
+        }
       }
     }
   }
 }
 
-.charity-bar-container {
-    height: 5em;
-    background-color: black;
-    border: 2px solid black;
-  }
+.cd-fixed-bg.cd-bg-1 {
+  background-image: 
+  url("http://www.psdgraphics.com/file/blue-scratched-texture.jpg");
+}
+
+.cd-fixed-bg.cd-bg-2 {
+  background-image: 
+  url("http://www.access4.eu/_media/home_hg.jpg");
+}
+
+.cd-fixed-bg.cd-bg-3 {
+  background-image: 
+  url("../img/cd-background-3.jpg");
+}
+.cd-fixed-bg.cd-bg-4 {
+  background-image: 
+  url("../img/cd-background-4.jpg");
+}
+
+.cd-scrolling-bg {
+  min-height: 50%;
+}
 
 .availability {
   @include span-columns(3);
