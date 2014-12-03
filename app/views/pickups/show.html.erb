@@ -1,17 +1,15 @@
-<div id="main-container">
-<div class="left-container">
-<h3>You've scheduled a pickup. Please confirm via email, or by using the following link. You will receive an email
-    <%= @availability.charity.name %> on 
-    <%= @availability.date.strftime("%B %d, %Y") %></h3>
+<div id="home-container">
+<div class="cd-fixed-bg cd-bg-1">
+  <h2>Almost done!</h2>
+    <h3>You have schedule a donation to <%= @availability.charity.name %> 
+    on <%= @availability.date.strftime("%B %d, %Y") %>. Your items will be picked up at <%= @pickup.address %>, <%= Town.find(@pickup.town_id).name %>
 
-  <%= render @availability %>
-  <%= @pickup.address %><br />
-  <%= @pickup.donor.email %>
+  <h5>To finalize this donation, please confirm your pickup. 
+    An email has been sent to <%= @pickup.donor.email %></h5>
 
-  <h4>
-    <%= button_to "Confirm Donation", 
-      pickup_pickup_confirmations_path(@pickup) %>
+    <h4>
+      <%= button_to "Confirm Donation", 
+        pickup_pickup_confirmations_path(@pickup) %>
   </h4>
-
+  </div>
 </div>
-<div class="right-container"></div></div>

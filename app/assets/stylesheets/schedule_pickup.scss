@@ -1,0 +1,19 @@
+.charity-img-container {
+  @include span-columns(5.8, "block-collapse");
+  border: 1px solid red;
+  height: 23em;
+  text-align: center;
+
+  img {
+    border: 3px solid black;
+    border-radius: 5px;
+    max-width: 350px;
+  }
+}
+
+.scheduling-container {
+  @include span-columns(6.2);
+  border: 1px solid red;
+  height: 23em;
+  padding: 10px;
+}

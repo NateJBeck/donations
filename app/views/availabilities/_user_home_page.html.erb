@@ -1,36 +1,41 @@
 <div id="home-container">
-  <div class="cd-fixed-bg cd-bg-1">
-    <h1>your used stuff can change lives</h1>
+<div class="cd-fixed-bg cd-bg-1">
+  <% if ! availabilities %>
+    <h2 class="title">your used goods can change lives</h2>
+  <% else %>
+    <h2 class="title">Choose a charity to donate to</h2>
+  <% end %>
+
+    <% if availabilities %>
+      <% if availabilities.empty? %>
+        <h3>We're sorry. No organization is schedule to visit your town within the next two months. Many of our charities operate only in the Greater Boston Area.</h3>
+      <% else %>
+        <progress max="100" value="33.333"></progress>
+        <div class="results-container">
+          <ul>
+            <%= render availabilities %>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+    
     <div class="town-search-form-container">
       <%= form_for :filter, html: { class: "filtering-form" }, 
         url: availabilities_path,
         :method => 'get' do |form| %>
         <%= form.collection_select :town_id,
           Town.order(:name), :id, :name, { prompt: "Enter Your Town" } %>
-        <%= form.submit "GO" %>
+        <%= form.submit "GO", class: "enter-button" %>
       <% end %>
     </div>
-  </div> 
-  <div class="cd-scrolling-bg cd-color-2">
-    <div class="cd-container">
-    </div> 
-  </div> 
 
- <div class="cd-fixed-bg cd-bg-2">
-    <h1>SECOND</h1>
   </div> 
   <div class="cd-scrolling-bg cd-color-2">
-    <div class="cd-container">
-    </div> 
+    <div class="cd-container"></div>
+  </div>
+
+  <div class="cd-fixed-bg cd-bg-2"></div> 
+  <div class="cd-scrolling-bg cd-color-2">
+    <div class="cd-container"></div> 
   </div> 
 </div>
-
-<% if params[:filter] %>
-  <% if availabilities.empty? %>
-    <h3>We're sorry. No organization is schedule to visit your town within the next two months. Many of our charities operate only in the Greater Boston Area.</h3>
-  <% else %>
-    <ul>
-      <%= render availabilities %>
-    </ul>
-  <% end %>
-<% end %>

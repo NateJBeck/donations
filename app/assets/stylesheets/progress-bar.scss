@@ -1,0 +1,28 @@
+progress[value] {
+  @include span-columns(6);
+  @include shift(3);
+  
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: center;
+  margin-top: 1em;
+  height: 28px;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: orange;
+  border-radius: 2px; 
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #04435E;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value::before {
+  font-weight: 900;
+  text-decoration: underline;
+}

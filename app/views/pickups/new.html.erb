@@ -1,11 +1,18 @@
-<div id="main-container">
-<div class="left-container">
-<h3>Schedule Your Donation to
-<%= @availability.charity.name %> on 
-<%= @availability.date.strftime("%B %d, %Y") %></h3>
+<div id="home-container">
+  <div class="cd-fixed-bg cd-bg-1">
+    <div class="title"><h1>Enter your information</h1></div>
+    <progress max="100" value="66.66"></progress>
 
-<div class="form-container"></div>
-<%= render "form", pickup: @pickup, availability: @availability %>
-</div>
-<div class="right-container"></div>
+    <div class="charity-img-container">
+      <%= image_tag("#{ @availability.charity.logo_url }") %>
+    </div>
+    <div class="scheduling-container">
+
+      <h3>Schedule Your Donation to
+        <%= @availability.charity.name %> on 
+        <%= @availability.date.strftime("%B %d, %Y") %></h3>
+
+      <%= render "form", pickup: @pickup, availability: @availability %>
+    </div>
+  </div>
 </div>

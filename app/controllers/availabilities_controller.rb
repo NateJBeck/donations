@@ -1,7 +1,8 @@
 class AvailabilitiesController < ApplicationController
   def index
-    @availabilities = Availability.where(filter_params).order(:date)
-    @upcoming_availabilities = @availabilities.next_two_months
+    if params[:filter]
+      @availabilities = Availability.next_six_availabilities(filter_params)
+    end
   end
 
   def show
@@ -11,12 +12,8 @@ class AvailabilitiesController < ApplicationController
   private
 
   def filter_params
-    if params[:filter]
-      params.require(:filter).
-        permit(:town_id, :charity_id).
-        select { |key, value| value.present? }
-    else
-      {}
-    end
+    params.require(:filter).
+      permit(:town_id, :charity_id).
+      select { |_, value| value.present? }
   end
 end

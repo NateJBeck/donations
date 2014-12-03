@@ -7,6 +7,10 @@ class Availability < ActiveRecord::Base
   belongs_to :town
   has_many :pickups, dependent: :destroy
 
+  def self.next_six_availabilities(params)
+    where(params).order(:date).where("date > ?", Date.current).limit(6)
+  end
+
   def confirmed_pickups
     pickups.confirmed
   end

@@ -6,16 +6,9 @@
     <div class="town-name-from-search">
       <%= availability.town.name %>
     </div>
-
-<% if availability == @availabilities.first %>
-  <h1>WOW</h1>
-<% end%>
-
-
     <div class="date-from-search">
       <%= availability.date.strftime("%A, %b %d") %>
     </div>
-
     <%= button_to "Schedule my Donation", 
       new_availability_pickup_path(availability), method: :get %>
   </div>

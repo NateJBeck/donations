@@ -5,17 +5,18 @@
         "base/base";
 
 @import "select2",
-        "pickup",
+        "map",
         "header",
         "footer",
         "dashboard",
         "user_home_page",
-        "pickup_new",
+        "schedule_pickup",
         "create_new_route",
         "tomorrow_upcoming_availabilities",
         "log_in",
         "availability_table",
-        "display_towns";
+        "display_towns",
+        "progress-bar";
 
 body {
   background-color: #DFDBD9; // #11052B;
