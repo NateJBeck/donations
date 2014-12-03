@@ -18,15 +18,16 @@
     </thead>
 
     <tbody>
-      <% availabilities.each do |date, availabilities| %>
+      <% availabilities.each_with_index do |(date, availabilities), i| %>
         <tr>
-          <td><strong><%= date.strftime("%a, %B %d") %></strong></td>
+          <td><%= date.strftime("%a, %B %d") %></td>
 
           <% if availabilities.count > 1 %>
             <% availabilities.each do |availability| %>
+              <div class="counter"><%= i %></div>
               <td>
-                <div class="pickup">
-                  <div class="pickup_address">
+                <div class="town_route">
+                  <div class="town_name">
                     <%= availability.town.name %>, MA
                   </div>
                 </div>
@@ -34,7 +35,7 @@
 
               <td><%= availability.pickups.count %></td>
 
-              <td><%= availability.pickups.confirmed.count %></td>
+              <td><div class="conf"><%= availability.pickups.confirmed.count %></div></td>
 
               <% if availability.pickups.count == 0 %>
                 <td>
@@ -53,9 +54,10 @@
             <% end%>
           <% end %>
         <% else %>
+          <div class="counter"><%= i %></div>
           <td>
-            <div class="pickup">
-              <div class="pickup_address">
+            <div class="town_route">
+              <div class="town_name">
                 <%= availabilities.first.town.name %>, MA
               </div>
             </div>
@@ -63,7 +65,11 @@
 
           <td><%= availabilities.first.pickups.count %></td>
 
-          <td><%= availabilities.first.pickups.confirmed.count %></td>
+          <td>
+            <div class="conf">
+              <%= availabilities.first.pickups.confirmed.count %>
+            </div>
+          </td>
 
           <% if availabilities.first.pickups.count == 0 %>
             <td>

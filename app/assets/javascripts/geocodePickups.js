@@ -1,26 +1,3 @@
-$(initialize);
-
-function initialize(){
-  createMap();
-  drawMap();
-}
-
-function createMap(){
-  var mapOptions = {
-    zoom: 12,
-  };
-
-  window.map = new google.maps.Map($("#map_canvas")[0], mapOptions);
-  window.mapBound = new google.maps.LatLngBounds();
-}
-
-function drawMap() {
-  $.each($(".pickup"), function(i, pickup) {
-    var listingAddress = $(pickup).find(".pickup_address").html();
-    geocodeAndAddMarker(listingAddress);
-  });
-};
-
 function geocodeAndAddMarker(address){
   var geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': address }, function(results, status) {
@@ -44,9 +21,4 @@ function geocodeAndAddMarker(address){
       alert("Geocode was not successful for the following reason: " + status);
     }
   });
-}
-
-function setBounds(latlng) {
-  window.mapBound.extend(latlng);
-  window.map.fitBounds(window.mapBound)
 }
