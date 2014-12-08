@@ -1,15 +1,15 @@
 <div id="home-container">
-<div class="cd-fixed-bg cd-bg-1">
-  <h2>Almost done!</h2>
-    <h3>You have schedule a donation to <%= @availability.charity.name %> 
-    on <%= @availability.date.strftime("%B %d, %Y") %>. Your items will be picked up at <%= @pickup.address %>, <%= Town.find(@pickup.town_id).name %>
-
-  <h5>To finalize this donation, please confirm your pickup. 
-    An email has been sent to <%= @pickup.donor.email %></h5>
-
-    <h4>
-      <%= button_to "Confirm Donation", 
+  <div class="top-info-container form-background">
+    <div class="confirming-panel">
+      <br>
+      <h5>You have scheduled a donation to <%= @availability.charity.name %></h5>
+      <br>
+      Date: <%= @availability.date.strftime("%B %d, %Y") %><br>
+      Address: <%= @pickup.address %>, <%= @pickup.town.name %>
+      <h4>
+        <%= button_to "Confirm Donation", 
         pickup_pickup_confirmations_path(@pickup) %>
-  </h4>
+      </h4>
+    </div>
   </div>
 </div>

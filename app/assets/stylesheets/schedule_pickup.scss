@@ -1,19 +1,40 @@
-.charity-img-container {
-  @include span-columns(5.8, "block-collapse");
-  border: 1px solid red;
-  height: 23em;
-  text-align: center;
+.enter-info {
+  padding-top: 5%;
+  padding-left: 1%;
+}
 
-  img {
-    border: 3px solid black;
-    border-radius: 5px;
-    max-width: 350px;
-  }
+.if-entered-properly {
+  @include span-columns(6.0, "block-collapse");
+
+  background-color: bisque;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  display: none;
+  height: 24em;
+  padding: 25px;
+}
+
+.confirming-panel {
+  @include span-columns(6);
+  @include shift(3);
+
+  background-color: bisque;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
 .scheduling-container {
-  @include span-columns(6.2);
-  border: 1px solid red;
-  height: 23em;
-  padding: 10px;
+  @include span-columns(5.8);
+
+  background-color: bisque;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  height: 24em;
+  margin-left: 10px;
+  padding: 25px;
 }

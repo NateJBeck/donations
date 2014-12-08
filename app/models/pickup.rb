@@ -6,6 +6,7 @@ class Pickup < ActiveRecord::Base
   belongs_to :user
   belongs_to :availability
   belongs_to :charity
+  belongs_to :town
 
   has_one :donor
 
