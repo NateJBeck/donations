@@ -1,5 +1,5 @@
 <% if params[:schedule] %>
-  <%= render "charity_schedule" %>
+  <%= render "charity_schedule", calendar: @calendar %>
 <% elsif params[:reportstats] %>
   <%= render "reports_and_stats" %>
 <% else %>

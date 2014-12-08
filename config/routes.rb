@@ -9,8 +9,6 @@ Rails.application.routes.draw do
       resources :presences, only: [:new, :create, :destroy]
       resources :towns, only: [:index]
     end
-
-    root to: "/admin/charities#show"
   end
 
   resources :charities, only: [:show] do

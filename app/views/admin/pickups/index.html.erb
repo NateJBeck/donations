@@ -1,4 +1,8 @@
 <h3> Showing: Confirmed Pickups for <%= @date %></h3>
+Download as 
+<%= link_to "CSV", 
+  admin_charity_pickups_path(format: "csv", date: params[:date]) %>
+
 <div id="map_wrapper">
   <div id="map_canvas"></div>
 </div>

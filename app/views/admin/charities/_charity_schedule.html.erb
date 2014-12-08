@@ -14,24 +14,25 @@
             <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
           </div>
           <h6>Towns</h6>
-          3
+          <%= calendar.tomorrow.count %>
         </div>
         <div class="specific-info-container">
           <div class="icon-container">
             <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
           </div>
           <h6>Confirmed Pickups</h6>
-            <% if @tomorrow_confirmed_count %>
-              <%= @tomorrow_confirmed_count %>
-            <% else %>
-              None
-            <% end %>
+          <% if calendar.tomorrow_confirmed_count %>
+            <%= calendar.tomorrow_confirmed_count %>
+          <% else %>
+            None
+          <% end %>
         </div>
         <div class="specific-info-container">
           <div class="icon-container">
             <%= image_tag("http://www.clker.com/cliparts/9/4/a/5/1341948541557248331Icon%20with%20Question%20Mark.svg.hi.png") %>
           </div>
-          <h6>Total Pickups</h6>30
+          <h6>Total Pickups</h6>
+          <%= calendar.tomorrow_pickups_count %>
         </div>
       </div>
       <div class="info-right-container">
@@ -51,19 +52,22 @@
           <div class="icon-container">
             <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
           </div>
-          <h6>Towns</h6>24
+          <h6>Towns</h6>
+          <%= calendar.this_weeks_town_count %>
         </div>
         <div class="specific-info-container">
           <div class="icon-container">
             <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
           </div>
-          <h6>Confirmed Pickups</h6>29
+          <h6>Confirmed Pickups</h6>
+          <%= calendar.weeks_confirmed_count %>
         </div>
         <div class="specific-info-container">
           <div class="icon-container">
             <%= image_tag("http://www.clker.com/cliparts/9/4/a/5/1341948541557248331Icon%20with%20Question%20Mark.svg.hi.png") %>
           </div>
-          <h6>Total Pickups</h6>40
+          <h6>Total Pickups</h6>
+          <%= @calendar.weeks_pickups_count %>
         </div>
       </div>
       <div class="info-right-container">
@@ -83,7 +87,7 @@
           <div class="icon-container">
             <%= image_tag("http://www.clker.com/cliparts/1/f/c/1/12379140591570510706dholler_ok.svg.med.png") %>
           </div>
-          <h6>Towns</h6><%= @charity.towns.count %>
+          <h6>Towns</h6>26
         </div>
         <div class="specific-info-container">
           <div class="icon-container">

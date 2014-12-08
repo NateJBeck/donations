@@ -19,12 +19,27 @@ class AvailabilityCalendar
     availabilities_within([ONE_DAY.from_now .. ONE_WEEK.from_now])
   end
 
+  def this_weeks_town_count
+    this_week.map { |_, avails| avails.count }.inject(:+)
+  end
+
   def next_365_days
     availabilities_within([Time.now .. ONE_YEAR.from_now])
   end
 
+  def tomorrow_pickups_count
+    tomorrow.map { |avail| avail.pickups.count }.inject(:+)
+  end
+
   def tomorrow_confirmed_count
     tomorrow.map { |avail| avail.confirmed_pickups.count }.inject(:+)
+  end
+
+  def weeks_pickups_count
+    @availabilities.
+      where(date: [ONE_DAY.from_now .. ONE_WEEK.from_now]).
+      map { |availability| availability.pickups.count }.
+      inject(:+)
   end
 
   def weeks_confirmed_count

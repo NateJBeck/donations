@@ -1,5 +1,8 @@
 class AvailabilitiesController < ApplicationController
   def index
+    if signed_in? && current_user.admin?
+      render "admin/charities/_welcome"
+    end
     if params[:filter]
       @availabilities = Availability.next_six_availabilities(filter_params)
     end

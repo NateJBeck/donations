@@ -3,6 +3,12 @@ class Admin::PickupsController < ApplicationController
     charity = find_charity_from_url
     @date = params[:date]
     @availabilities = charity.availabilities.where(date: @date)
+
+    respond_to do |format|
+      writer = AvailabilityWriter.new(@availabilities)
+      format.html
+      format.csv { send_data writer.to_csv }
+    end
   end
 
   def new
