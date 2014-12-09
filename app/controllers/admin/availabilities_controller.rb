@@ -25,7 +25,8 @@ class Admin::AvailabilitiesController < AdminController
   def destroy
     charity = find_charity_from_url
     charity.availabilities.find(params[:id]).destroy
-    redirect_to admin_charity_path(charity)
+
+    redirect_to :back
   end
 
   private
