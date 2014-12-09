@@ -67,6 +67,25 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  # Configuring gmail for confirmation sending
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default_options = {
+    from: "donationstationmailer@gmail.com"
+  }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    address:              "smtp.gmail.com",
+    port:                 587,
+    domain:               "http://www.gmail.com",
+    user_name:            "donationstationmailer@gmail.com",
+    password:             ENV["mail_whisper"],
+    authentication:       "plain",
+    enable_starttls_auto: true
+  }
+
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
